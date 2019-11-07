@@ -8,11 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText userinput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +61,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView tv = (TextView)this.findViewById(R.id.numberTextView);
+        userinput = (EditText) findViewById(R.id.ui);
 
 
         Random r = new Random();
 
-        int number = r.nextInt(10);
+        int number = r.nextInt(6) + 1;
 
 
         tv.setText(Integer.toString(number));
+
+        int guess= Integer.parseInt(userinput.getText().toString());
+
+
+
+        if (guess < 1 || guess > 6) {
+
+            Toast.makeText(this, "Enter between 1 and 6!", Toast.LENGTH_SHORT).show();
+
+        } else if (guess == number) {
+
+            Toast.makeText(this, "CONGRATULATIONS!", Toast.LENGTH_SHORT).show();
+
+        }
 
 
     }
