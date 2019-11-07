@@ -17,6 +17,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private EditText userinput;
+    private int points = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView tv = (TextView)this.findViewById(R.id.numberTextView);
+        TextView pointview = (TextView)this.findViewById(R.id.pv);
         userinput = (EditText) findViewById(R.id.ui);
 
 
@@ -82,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (guess == number) {
 
             Toast.makeText(this, "CONGRATULATIONS!", Toast.LENGTH_SHORT).show();
-
+            points = points + 1;
+            pointview.setText(Integer.toString(points));
         }
 
 
