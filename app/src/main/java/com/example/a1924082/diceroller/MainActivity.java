@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -88,6 +89,36 @@ public class MainActivity extends AppCompatActivity {
             pointview.setText(Integer.toString(points));
         }
 
+
+    }
+
+    public void dicebreaker(View view){
+
+        TextView viewlist = (TextView)this.findViewById(R.id.vl);
+
+        ArrayList<String> randomquestions = new ArrayList<>();
+        randomquestions.add("1) If you could go anywhere in the world, where would you go?");
+        randomquestions.add("2) If you were stranded on a desert island, what three things would you want to take with you?");
+        randomquestions.add("3) If you could eat only one food for the rest of your life, what would that be?");
+        randomquestions.add("4) If you won a million dollars, what is the first thing you would buy?");
+        randomquestions.add("5) If you could spaned the day with one fictional character, who would it be?");
+        randomquestions.add("6) If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+
+
+
+        Random rand = new Random();
+
+        int numberOfElements = 1;
+
+
+
+        for (int i = 0; i < numberOfElements; i++) {
+
+            int ri = rand.nextInt(randomquestions.size());
+            String randElement = randomquestions.get(ri);
+            viewlist.setText(randElement);
+
+        }
 
     }
 }

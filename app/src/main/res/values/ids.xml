@@ -2,4 +2,5 @@
 <resources>
     <item name="ui" type="id" />
     <item name="pv" type="id" />
+    <item name="vl" type="id" />
 </resources>
